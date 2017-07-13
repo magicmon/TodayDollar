@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		0F8272DA1F1737510084A598 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8272D91F1737510084A598 /* AppDelegate.swift */; };
-		0F8272DC1F1737510084A598 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8272DB1F1737510084A598 /* ViewController.swift */; };
 		0F8272DF1F1737510084A598 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F8272DD1F1737510084A598 /* Main.storyboard */; };
 		0F8272E11F1737510084A598 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F8272E01F1737510084A598 /* Assets.xcassets */; };
 		0F8272E41F1737510084A598 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F8272E21F1737510084A598 /* LaunchScreen.storyboard */; };
 		0F8272EF1F1737510084A598 /* TodayDollarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8272EE1F1737510084A598 /* TodayDollarTests.swift */; };
 		0F8272FA1F1737510084A598 /* TodayDollarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8272F91F1737510084A598 /* TodayDollarUITests.swift */; };
+		0F82730A1F1738D50084A598 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8273091F1738D50084A598 /* MainViewController.swift */; };
+		0F82730E1F175F310084A598 /* CurrencySearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F82730D1F175F310084A598 /* CurrencySearchAPI.swift */; };
+		0F82731A1F1764DB0084A598 /* CurrencySearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8273191F1764DB0084A598 /* CurrencySearchResult.swift */; };
+		0F82731C1F176AB70084A598 /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F82731B1F176AB70084A598 /* SearchResultViewModel.swift */; };
 		B781C62E409CDDC2F8E25CE9 /* Pods_TodayDollar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06E6D09549B587DD4CBA2291 /* Pods_TodayDollar.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +41,6 @@
 		06E6D09549B587DD4CBA2291 /* Pods_TodayDollar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayDollar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F8272D61F1737510084A598 /* TodayDollar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodayDollar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F8272D91F1737510084A598 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0F8272DB1F1737510084A598 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0F8272DE1F1737510084A598 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0F8272E01F1737510084A598 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F8272E31F1737510084A598 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,10 @@
 		0F8272F51F1737510084A598 /* TodayDollarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodayDollarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F8272F91F1737510084A598 /* TodayDollarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayDollarUITests.swift; sourceTree = "<group>"; };
 		0F8272FB1F1737510084A598 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F8273091F1738D50084A598 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		0F82730D1F175F310084A598 /* CurrencySearchAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencySearchAPI.swift; sourceTree = "<group>"; };
+		0F8273191F1764DB0084A598 /* CurrencySearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencySearchResult.swift; sourceTree = "<group>"; };
+		0F82731B1F176AB70084A598 /* SearchResultViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewModel.swift; sourceTree = "<group>"; };
 		277BEA04424B54F0FC8435E9 /* Pods-TodayDollar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayDollar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodayDollar/Pods-TodayDollar.debug.xcconfig"; sourceTree = "<group>"; };
 		D634311DD8D895F5BE907B8E /* Pods-TodayDollar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayDollar.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodayDollar/Pods-TodayDollar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,8 +110,10 @@
 		0F8272D81F1737510084A598 /* TodayDollar */ = {
 			isa = PBXGroup;
 			children = (
+				0F8273071F1738CA0084A598 /* ViewModels */,
+				0F8273081F1738CA0084A598 /* Views */,
+				0F82730C1F175D1E0084A598 /* API */,
 				0F8272D91F1737510084A598 /* AppDelegate.swift */,
-				0F8272DB1F1737510084A598 /* ViewController.swift */,
 				0F8272DD1F1737510084A598 /* Main.storyboard */,
 				0F8272E01F1737510084A598 /* Assets.xcassets */,
 				0F8272E21F1737510084A598 /* LaunchScreen.storyboard */,
@@ -131,6 +139,31 @@
 			);
 			path = TodayDollarUITests;
 			sourceTree = "<group>";
+		};
+		0F8273071F1738CA0084A598 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0F82731B1F176AB70084A598 /* SearchResultViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0F8273081F1738CA0084A598 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0F8273091F1738D50084A598 /* MainViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0F82730C1F175D1E0084A598 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				0F82730D1F175F310084A598 /* CurrencySearchAPI.swift */,
+				0F8273191F1764DB0084A598 /* CurrencySearchResult.swift */,
+			);
+			path = API;
+			sourceTree = SOURCE_ROOT;
 		};
 		3C3EB559C71B8B35E0CC4F52 /* Pods */ = {
 			isa = PBXGroup;
@@ -334,8 +367,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F8272DC1F1737510084A598 /* ViewController.swift in Sources */,
+				0F82730E1F175F310084A598 /* CurrencySearchAPI.swift in Sources */,
 				0F8272DA1F1737510084A598 /* AppDelegate.swift in Sources */,
+				0F82731A1F1764DB0084A598 /* CurrencySearchResult.swift in Sources */,
+				0F82731C1F176AB70084A598 /* SearchResultViewModel.swift in Sources */,
+				0F82730A1F1738D50084A598 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
