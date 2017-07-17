@@ -13,10 +13,21 @@
 		0F8272E41F1737510084A598 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F8272E21F1737510084A598 /* LaunchScreen.storyboard */; };
 		0F8272EF1F1737510084A598 /* TodayDollarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8272EE1F1737510084A598 /* TodayDollarTests.swift */; };
 		0F8272FA1F1737510084A598 /* TodayDollarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8272F91F1737510084A598 /* TodayDollarUITests.swift */; };
-		0F82730A1F1738D50084A598 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8273091F1738D50084A598 /* MainViewController.swift */; };
-		0F82730E1F175F310084A598 /* CurrencySearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F82730D1F175F310084A598 /* CurrencySearchAPI.swift */; };
-		0F82731A1F1764DB0084A598 /* CurrencySearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8273191F1764DB0084A598 /* CurrencySearchResult.swift */; };
-		0F82731C1F176AB70084A598 /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F82731B1F176AB70084A598 /* SearchResultViewModel.swift */; };
+		0F8273351F1C4EF00084A598 /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8273341F1C4EF00084A598 /* Rate.swift */; };
+		0F8273371F1C50B40084A598 /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8273361F1C50B40084A598 /* ExchangeRate.swift */; };
+		0F8273391F1C582F0084A598 /* UseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8273381F1C582F0084A598 /* UseCaseProvider.swift */; };
+		0F82733B1F1C58800084A598 /* ExchangeRatesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F82733A1F1C58800084A598 /* ExchangeRatesUseCase.swift */; };
+		0F8273411F1C59870084A598 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8273401F1C59870084A598 /* Network.swift */; };
+		0F8273431F1C5B370084A598 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8273421F1C5B370084A598 /* NetworkProvider.swift */; };
+		0F8273471F1C5BD30084A598 /* ExchangeRatesNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8273461F1C5BD30084A598 /* ExchangeRatesNetwork.swift */; };
+		0F8273491F1C65FC0084A598 /* ExchangeRates+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8273481F1C65FC0084A598 /* ExchangeRates+Mapping.swift */; };
+		0F82734D1F1C6C3B0084A598 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F82734C1F1C6C3B0084A598 /* MainViewController.swift */; };
+		0F8273501F1C6C720084A598 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F82734F1F1C6C720084A598 /* ViewModelType.swift */; };
+		0F8273521F1C6C900084A598 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8273511F1C6C900084A598 /* MainViewModel.swift */; };
+		0F8273551F1C6D320084A598 /* ErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8273541F1C6D320084A598 /* ErrorTracker.swift */; };
+		0F8273571F1C6D450084A598 /* Observable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8273561F1C6D450084A598 /* Observable+Ext.swift */; };
+		0F82735E1F1C6E390084A598 /* NetworkExchangeRatesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F82735D1F1C6E390084A598 /* NetworkExchangeRatesUseCase.swift */; };
+		0F8273601F1C72BD0084A598 /* NetworkUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F82735F1F1C72BD0084A598 /* NetworkUseCaseProvider.swift */; };
 		B781C62E409CDDC2F8E25CE9 /* Pods_TodayDollar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06E6D09549B587DD4CBA2291 /* Pods_TodayDollar.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,10 +62,21 @@
 		0F8272F51F1737510084A598 /* TodayDollarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodayDollarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F8272F91F1737510084A598 /* TodayDollarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayDollarUITests.swift; sourceTree = "<group>"; };
 		0F8272FB1F1737510084A598 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0F8273091F1738D50084A598 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		0F82730D1F175F310084A598 /* CurrencySearchAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencySearchAPI.swift; sourceTree = "<group>"; };
-		0F8273191F1764DB0084A598 /* CurrencySearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencySearchResult.swift; sourceTree = "<group>"; };
-		0F82731B1F176AB70084A598 /* SearchResultViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewModel.swift; sourceTree = "<group>"; };
+		0F8273341F1C4EF00084A598 /* Rate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
+		0F8273361F1C50B40084A598 /* ExchangeRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
+		0F8273381F1C582F0084A598 /* UseCaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCaseProvider.swift; sourceTree = "<group>"; };
+		0F82733A1F1C58800084A598 /* ExchangeRatesUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRatesUseCase.swift; sourceTree = "<group>"; };
+		0F8273401F1C59870084A598 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		0F8273421F1C5B370084A598 /* NetworkProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		0F8273461F1C5BD30084A598 /* ExchangeRatesNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRatesNetwork.swift; sourceTree = "<group>"; };
+		0F8273481F1C65FC0084A598 /* ExchangeRates+Mapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ExchangeRates+Mapping.swift"; sourceTree = "<group>"; };
+		0F82734C1F1C6C3B0084A598 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		0F82734F1F1C6C720084A598 /* ViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		0F8273511F1C6C900084A598 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		0F8273541F1C6D320084A598 /* ErrorTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTracker.swift; sourceTree = "<group>"; };
+		0F8273561F1C6D450084A598 /* Observable+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Ext.swift"; sourceTree = "<group>"; };
+		0F82735D1F1C6E390084A598 /* NetworkExchangeRatesUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkExchangeRatesUseCase.swift; sourceTree = "<group>"; };
+		0F82735F1F1C72BD0084A598 /* NetworkUseCaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkUseCaseProvider.swift; sourceTree = "<group>"; };
 		277BEA04424B54F0FC8435E9 /* Pods-TodayDollar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayDollar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodayDollar/Pods-TodayDollar.debug.xcconfig"; sourceTree = "<group>"; };
 		D634311DD8D895F5BE907B8E /* Pods-TodayDollar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayDollar.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodayDollar/Pods-TodayDollar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,9 +132,11 @@
 		0F8272D81F1737510084A598 /* TodayDollar */ = {
 			isa = PBXGroup;
 			children = (
-				0F8273071F1738CA0084A598 /* ViewModels */,
-				0F8273081F1738CA0084A598 /* Views */,
-				0F82730C1F175D1E0084A598 /* API */,
+				0F82734E1F1C6C690084A598 /* Common */,
+				0F82734A1F1C6C130084A598 /* Scenes */,
+				0F82732F1F1C4E680084A598 /* Domain */,
+				0F82733C1F1C596C0084A598 /* Network */,
+				0F8273531F1C6D270084A598 /* Utility */,
 				0F8272D91F1737510084A598 /* AppDelegate.swift */,
 				0F8272DD1F1737510084A598 /* Main.storyboard */,
 				0F8272E01F1737510084A598 /* Assets.xcassets */,
@@ -140,30 +164,111 @@
 			path = TodayDollarUITests;
 			sourceTree = "<group>";
 		};
-		0F8273071F1738CA0084A598 /* ViewModels */ = {
+		0F82732F1F1C4E680084A598 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				0F82731B1F176AB70084A598 /* SearchResultViewModel.swift */,
+				0F8273301F1C4E680084A598 /* Entries */,
+				0F8273311F1C4E680084A598 /* UseCases */,
 			);
-			path = ViewModels;
+			path = Domain;
 			sourceTree = "<group>";
 		};
-		0F8273081F1738CA0084A598 /* Views */ = {
+		0F8273301F1C4E680084A598 /* Entries */ = {
 			isa = PBXGroup;
 			children = (
-				0F8273091F1738D50084A598 /* MainViewController.swift */,
+				0F8273361F1C50B40084A598 /* ExchangeRate.swift */,
+				0F8273341F1C4EF00084A598 /* Rate.swift */,
 			);
-			path = Views;
+			path = Entries;
 			sourceTree = "<group>";
 		};
-		0F82730C1F175D1E0084A598 /* API */ = {
+		0F8273311F1C4E680084A598 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				0F82730D1F175F310084A598 /* CurrencySearchAPI.swift */,
-				0F8273191F1764DB0084A598 /* CurrencySearchResult.swift */,
+				0F82733A1F1C58800084A598 /* ExchangeRatesUseCase.swift */,
+				0F8273381F1C582F0084A598 /* UseCaseProvider.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		0F82733C1F1C596C0084A598 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				0F82733D1F1C596C0084A598 /* API */,
+				0F82733E1F1C596C0084A598 /* Entries */,
+				0F82733F1F1C596C0084A598 /* Network */,
+				0F8273581F1C6DCC0084A598 /* UseCases */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		0F82733D1F1C596C0084A598 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				0F8273461F1C5BD30084A598 /* ExchangeRatesNetwork.swift */,
 			);
 			path = API;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
+		};
+		0F82733E1F1C596C0084A598 /* Entries */ = {
+			isa = PBXGroup;
+			children = (
+				0F8273481F1C65FC0084A598 /* ExchangeRates+Mapping.swift */,
+			);
+			path = Entries;
+			sourceTree = "<group>";
+		};
+		0F82733F1F1C596C0084A598 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				0F8273401F1C59870084A598 /* Network.swift */,
+				0F8273421F1C5B370084A598 /* NetworkProvider.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		0F82734A1F1C6C130084A598 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				0F82734B1F1C6C330084A598 /* Main */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		0F82734B1F1C6C330084A598 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				0F82734C1F1C6C3B0084A598 /* MainViewController.swift */,
+				0F8273511F1C6C900084A598 /* MainViewModel.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		0F82734E1F1C6C690084A598 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				0F82734F1F1C6C720084A598 /* ViewModelType.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		0F8273531F1C6D270084A598 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				0F8273541F1C6D320084A598 /* ErrorTracker.swift */,
+				0F8273561F1C6D450084A598 /* Observable+Ext.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		0F8273581F1C6DCC0084A598 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				0F82735D1F1C6E390084A598 /* NetworkExchangeRatesUseCase.swift */,
+				0F82735F1F1C72BD0084A598 /* NetworkUseCaseProvider.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
 		};
 		3C3EB559C71B8B35E0CC4F52 /* Pods */ = {
 			isa = PBXGroup;
@@ -367,11 +472,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F82730E1F175F310084A598 /* CurrencySearchAPI.swift in Sources */,
+				0F8273501F1C6C720084A598 /* ViewModelType.swift in Sources */,
+				0F82735E1F1C6E390084A598 /* NetworkExchangeRatesUseCase.swift in Sources */,
+				0F8273411F1C59870084A598 /* Network.swift in Sources */,
+				0F82733B1F1C58800084A598 /* ExchangeRatesUseCase.swift in Sources */,
 				0F8272DA1F1737510084A598 /* AppDelegate.swift in Sources */,
-				0F82731A1F1764DB0084A598 /* CurrencySearchResult.swift in Sources */,
-				0F82731C1F176AB70084A598 /* SearchResultViewModel.swift in Sources */,
-				0F82730A1F1738D50084A598 /* MainViewController.swift in Sources */,
+				0F8273601F1C72BD0084A598 /* NetworkUseCaseProvider.swift in Sources */,
+				0F8273471F1C5BD30084A598 /* ExchangeRatesNetwork.swift in Sources */,
+				0F8273551F1C6D320084A598 /* ErrorTracker.swift in Sources */,
+				0F8273491F1C65FC0084A598 /* ExchangeRates+Mapping.swift in Sources */,
+				0F8273351F1C4EF00084A598 /* Rate.swift in Sources */,
+				0F8273391F1C582F0084A598 /* UseCaseProvider.swift in Sources */,
+				0F8273431F1C5B370084A598 /* NetworkProvider.swift in Sources */,
+				0F8273371F1C50B40084A598 /* ExchangeRate.swift in Sources */,
+				0F82734D1F1C6C3B0084A598 /* MainViewController.swift in Sources */,
+				0F8273571F1C6D450084A598 /* Observable+Ext.swift in Sources */,
+				0F8273521F1C6C900084A598 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
