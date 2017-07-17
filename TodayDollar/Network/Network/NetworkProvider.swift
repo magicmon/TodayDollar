@@ -14,7 +14,7 @@ final class NetworkProvider {
     private let apiEndpoint: String
     
     init() {
-        apiEndpoint = "http://api.fixer.io"
+        apiEndpoint = "https://api.fixer.io"
     }
     
     func makeExchangeRatesNetwork() -> ExchangeRatesNetwork {

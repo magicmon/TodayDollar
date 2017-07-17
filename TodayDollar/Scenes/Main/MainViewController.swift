@@ -32,7 +32,6 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
         viewModel = MainViewModel(useCase: NetworkUseCaseProvider().makeExchangeRatesUseCase())
         
         let input = MainViewModel.Input(buttonTrigger: changeButton.rx.tap.asDriver().map {
@@ -40,7 +39,6 @@ class MainViewController: UIViewController {
         })
         
         let output = viewModel.transform(input: input)
-        
         
         output.rates
             .do(onNext: { [weak self] _ in

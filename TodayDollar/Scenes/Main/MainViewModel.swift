@@ -9,11 +9,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
-//
-//enum CurrencyCode: STring {
-//    case USD = "USD"
-//    case KRW = "KRW"
-//}
+
 class MainViewModel: ViewModelType {
     
     struct Input {
@@ -35,8 +31,8 @@ class MainViewModel: ViewModelType {
         
         let errorTracker = ErrorTracker()
         
-        let rates = input.buttonTrigger.flatMapLatest { (defaultLabel, convertText) in
-            return self.useCase.exchangeRates(from: defaultLabel, to: [convertText])
+        let rates = input.buttonTrigger.flatMapLatest { (defaultText, convertText) in
+            return self.useCase.exchangeRates(from: defaultText, to: [convertText])
                     .trackError(errorTracker)
                     .asDriver(onErrorJustReturn: ExchangeRate(base: "USD", date: Date(), rates: []))
         }

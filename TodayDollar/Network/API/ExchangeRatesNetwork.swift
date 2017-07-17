@@ -19,7 +19,7 @@ final class ExchangeRatesNetwork {
         return network.getExchangeRates(from: baseRate, to: symbols)
     }
     
-    func historicalRates(from baseRate: String? = "USD", to symbols: [String], peroid: Int = 7) -> Observable<[ExchangeRate]> {
+    func historicalRates(from baseRate: String? = nil, to symbols: [String]? = nil, peroid: Int? = nil) -> Observable<[ExchangeRate]> {
         return network.getHistoricalRates(from: baseRate, to: symbols, peroid: peroid)
     }
 }

@@ -12,5 +12,9 @@ import RxSwift
 protocol AllExchangeRatesUseCase {
     func exchangeRates() -> Observable<ExchangeRate>
     func exchangeRates(from baseRate: String?) -> Observable<ExchangeRate>
-    func exchangeRates(from baseRate: String?, to symbols: [String]) -> Observable<ExchangeRate>
+    func exchangeRates(from baseRate: String?, to symbols: [String]?) -> Observable<ExchangeRate>
+    
+    func historicalRates() -> Observable<[ExchangeRate]>
+    func historicalRates(from baseRate: String?, to symbols: [String]?) -> Observable<[ExchangeRate]>
+    func historicalRates(from baseRate: String?, to symbols: [String]?, period: Int?) -> Observable<[ExchangeRate]>
 }

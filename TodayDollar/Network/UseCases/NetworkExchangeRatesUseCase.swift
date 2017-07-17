@@ -24,8 +24,19 @@ class NetworkExchangeRatesUseCase: AllExchangeRatesUseCase {
         return network.specifiecExchangeRates(from: baseRate)
     }
     
-    func exchangeRates(from baseRate: String?, to symbols: [String]) -> Observable<ExchangeRate> {
+    func exchangeRates(from baseRate: String?, to symbols: [String]?) -> Observable<ExchangeRate> {
         return network.specifiecExchangeRates(from: baseRate, to: symbols)
     }
     
+    func historicalRates() -> Observable<[ExchangeRate]> {
+        return network.historicalRates()
+    }
+    
+    func historicalRates(from baseRate: String?, to symbols: [String]?) -> Observable<[ExchangeRate]> {
+        return network.historicalRates(from: baseRate, to: symbols)
+    }
+    
+    func historicalRates(from baseRate: String?, to symbols: [String]?, period: Int?) -> Observable<[ExchangeRate]> {
+        return network.historicalRates(from: baseRate, to: symbols, peroid: period)
+    }
 }

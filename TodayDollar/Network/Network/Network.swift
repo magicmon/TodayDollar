@@ -10,7 +10,6 @@ import UIKit
 import Foundation
 import RxAlamofire
 import RxSwift
-import ObjectMapper
 
 
 func apiError(_ error: String, location: String = "\(#file):\(#line)") -> NSError {
@@ -38,18 +37,19 @@ final class Network {
     
     
     // https://api.fixer.io/2017-07-12?base=USD&symbols=KRW
-    func getHistoricalRates(from baseRate: String? = "USD", to symbols: [String], peroid: Int = 7) -> Observable<[ExchangeRate]> {
+    func getHistoricalRates(from baseRate: String? = nil, to symbols: [String]? = nil, peroid: Int? = nil) -> Observable<[ExchangeRate]> {
         // max 7 days
-        var peroid = peroid
+        var peroid = peroid ?? 7
         if peroid > 7 { peroid = 7 }
         if peroid < 0 { peroid = 1 }
-        
-        let parameters = "base=\(baseRate?.URLEscaped ?? "")&symbols=\(symbols.joined(separator: ",").URLEscaped)"
         
         var requests: [Observable<(HTTPURLResponse, Any)>] = []
         
         for days in ( 1...peroid).reversed() {
-            let url = URL(string: "https://api.fixer.io/\(Date().daysAgo(value: days).stringValue)?\(parameters)")!
+            
+            let absolutePath = "\(endPoint)/\(Date().daysAgo(value: days).stringValue)\(addParameters(from: baseRate, to: symbols))"
+            let url = URL(string: absolutePath)!
+            
             let request = RxAlamofire.requestJSON(.get, url)
             
             requests.append(request)
@@ -60,7 +60,6 @@ final class Network {
                 return try ExchangeRate.parseJSONs(response)
         }
     }
-    
 }
 
 extension Network {
