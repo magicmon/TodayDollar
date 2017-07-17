@@ -18,11 +18,9 @@ func apiError(_ error: String, location: String = "\(#file):\(#line)") -> NSErro
 
 final class Network {
     private let endPoint: String
-    private let scheduler: ConcurrentDispatchQueueScheduler
     
     init(_ endPoint: String) {
         self.endPoint = endPoint
-        self.scheduler = ConcurrentDispatchQueueScheduler(qos: DispatchQoS(qosClass: DispatchQoS.QoSClass.background, relativePriority: 1))
     }
     
     func getExchangeRates(from baseRate: String? = nil, to symbols: [String]? = nil) -> Observable<ExchangeRate> {
@@ -34,7 +32,6 @@ final class Network {
                 return try ExchangeRate.parseJSON(json)
         }
     }
-    
     
     // https://api.fixer.io/2017-07-12?base=USD&symbols=KRW
     func getHistoricalRates(from baseRate: String? = nil, to symbols: [String]? = nil, peroid: Int? = nil) -> Observable<[ExchangeRate]> {

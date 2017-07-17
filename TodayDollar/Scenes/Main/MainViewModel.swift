@@ -13,11 +13,13 @@ import RxCocoa
 class MainViewModel: ViewModelType {
     
     struct Input {
+        let trigger: Driver<(String, String)>
         let buttonTrigger: Driver<(String, String)>
     }
     
     struct Output {
         let rates: Driver<ExchangeRate>
+        let changedLabel: Driver<Void>
         let error: Driver<Error>
     }
     
@@ -27,16 +29,24 @@ class MainViewModel: ViewModelType {
         self.useCase = useCase
     }
     
+    let bag: DisposeBag = DisposeBag()
+
     func transform(input: Input) -> Output {
         
         let errorTracker = ErrorTracker()
         
-        let rates = input.buttonTrigger.flatMapLatest { (defaultText, convertText) in
-            return self.useCase.exchangeRates(from: defaultText, to: [convertText])
+        let mergeTrigger = Driver.merge(input.trigger, input.buttonTrigger)
+        
+        let rates = mergeTrigger.flatMapLatest { (defaultText, convertText) in
+            return self.useCase.exchangeRates(from: convertText, to: [defaultText])
                     .trackError(errorTracker)
                     .asDriver(onErrorJustReturn: ExchangeRate(base: "USD", date: Date(), rates: []))
         }
         
-        return Output(rates: rates, error: errorTracker.asDriver())
+        let changedLabel = input.buttonTrigger.flatMapLatest { (_, _) in
+            return Driver.just()
+        }
+        
+        return Output(rates: rates, changedLabel: changedLabel, error: errorTracker.asDriver())
     }
 }
