@@ -13,6 +13,18 @@ struct ExchangeRate {
     let base: String
     let date: Date
     let rates: [Rate]
+    
+}
+
+extension ExchangeRate {
+    
+    var maxRates: Double {
+        return self.rates.map { $0.basicRate }.max() ?? 0.0
+    }
+    
+    var minRates: Double {
+        return self.rates.map { $0.basicRate }.min() ?? 0.0
+    }
 }
 
 extension ExchangeRate: Equatable {

@@ -62,9 +62,9 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LG9-fe-BW3" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="22" y="371" width="331" height="136"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LG9-fe-BW3" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="22" y="371" width="331" height="176"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCo-4d-k6F">
                                 <rect key="frame" x="171.5" y="128" width="32" height="32"/>
@@ -82,7 +82,7 @@
                             <constraint firstItem="P2p-Uf-AAp" firstAttribute="top" secondItem="9dU-aR-9eL" secondAttribute="bottom" constant="24" id="8rJ-hC-hMr"/>
                             <constraint firstItem="gmu-B3-FCp" firstAttribute="leading" secondItem="P2p-Uf-AAp" secondAttribute="trailing" constant="8" symbolic="YES" id="BWy-lL-68e"/>
                             <constraint firstItem="LCo-4d-k6F" firstAttribute="top" secondItem="uJ7-Jl-eE5" secondAttribute="bottom" constant="8" id="Ckb-Ca-08D"/>
-                            <constraint firstItem="nh8-wl-R90" firstAttribute="top" secondItem="LG9-fe-BW3" secondAttribute="bottom" constant="160" id="M3m-ll-lMJ"/>
+                            <constraint firstItem="nh8-wl-R90" firstAttribute="top" secondItem="LG9-fe-BW3" secondAttribute="bottom" constant="120" id="M3m-ll-lMJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LG9-fe-BW3" secondAttribute="trailing" constant="6" id="MRn-Vl-DKE"/>
                             <constraint firstItem="LCo-4d-k6F" firstAttribute="centerX" secondItem="5Y9-rK-PDu" secondAttribute="centerX" id="RUs-GV-5Vi"/>
                             <constraint firstItem="LG9-fe-BW3" firstAttribute="leading" secondItem="5Y9-rK-PDu" secondAttribute="leadingMargin" constant="6" id="Svh-gT-HlI"/>

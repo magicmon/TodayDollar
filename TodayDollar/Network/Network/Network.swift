@@ -53,6 +53,7 @@ final class Network {
         }
 
         return Observable.combineLatest(requests)
+            .debug()
             .map { response in
                 return try ExchangeRate.parseJSONs(response)
         }

@@ -19,6 +19,7 @@ class MainViewModel: ViewModelType {
     
     struct Output {
         let rates: Driver<ExchangeRate>
+        let peroidRates: Driver<[ExchangeRate]>
         let changedLabel: Driver<Void>
         let error: Driver<Error>
     }
@@ -43,10 +44,16 @@ class MainViewModel: ViewModelType {
                     .asDriver(onErrorJustReturn: ExchangeRate(base: "USD", date: Date(), rates: []))
         }
         
+        let peroidRates = mergeTrigger.flatMapLatest { (defaultText, convertText) in
+            return self.useCase.historicalRates(from: convertText, to: [defaultText], period: 7)
+                    .trackError(errorTracker)
+                    .asDriver(onErrorJustReturn: [])
+        }
+        
         let changedLabel = input.buttonTrigger.flatMapLatest { (_, _) in
             return Driver.just()
         }
         
-        return Output(rates: rates, changedLabel: changedLabel, error: errorTracker.asDriver())
+        return Output(rates: rates, peroidRates: peroidRates, changedLabel: changedLabel, error: errorTracker.asDriver())
     }
 }
