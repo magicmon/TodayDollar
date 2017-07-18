@@ -19,6 +19,7 @@ class MainViewModel: ViewModelType {
     
     struct Output {
         let peroidRates: Driver<[ExchangeRate]>
+        let rateCode: Driver<RateCode>
         let error: Driver<Error>
     }
     
@@ -34,13 +35,17 @@ class MainViewModel: ViewModelType {
         
         let errorTracker = ErrorTracker()
         
-        let peroidRates = input.buttonTrigger
+        let switchCode = input.buttonTrigger.map { rateCode in
+            return RateCode(baseCode: rateCode.symbolCode, symbolCode: rateCode.baseCode)
+        }
+        
+        let peroidRates = switchCode
             .flatMapLatest { (rateCode) in
                 return self.useCase.historicalRates(from: rateCode.baseCode, to: [rateCode.symbolCode], period: 7)
                     .trackError(errorTracker)
                     .asDriver(onErrorJustReturn: [])
         }
         
-        return Output(peroidRates: peroidRates, error: errorTracker.asDriver())
+        return Output(peroidRates: peroidRates, rateCode: switchCode, error: errorTracker.asDriver())
     }
 }

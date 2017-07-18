@@ -38,24 +38,21 @@ class MainViewController: UIViewController {
             trigger: Driver.just(),
             buttonTrigger: changeButton.rx.tap
                 .asDriver()
-                .do(onNext: { _ in
-                    let aa = self.baseCodeLabel.text
-                    let bb = self.symbolCodeLabel.text
-                    
-                    self.baseCodeLabel.text = bb
-                    self.symbolCodeLabel.text = aa
-                })
                 .debounce(0.3)
                 .startWith(())
                 .map {
-                    return RateCode(baseCode: self.baseCodeLabel.text ?? "USD", symbolCode: self.symbolCodeLabel.text ?? "KRW")
+                    return RateCode(baseCode: self.baseCodeLabel.text ?? "KRW", symbolCode: self.symbolCodeLabel.text ?? "USD")
         })
         
         let output = viewModel.transform(input: input)
         
-        
         output.peroidRates.drive(ratesBinding).disposed(by: bag)    // 오늘 환율
         output.peroidRates.drive(periodBinding).disposed(by: bag)   // 일주일간 환율 추이
+        
+        output.rateCode.drive(onNext: { (rateCode) in
+            self.baseCodeLabel.text = rateCode.baseCode
+            self.symbolCodeLabel.text = rateCode.symbolCode
+        }).disposed(by: bag)
     }
 }
 
