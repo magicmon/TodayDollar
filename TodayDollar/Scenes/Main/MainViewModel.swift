@@ -13,14 +13,12 @@ import RxCocoa
 class MainViewModel: ViewModelType {
     
     struct Input {
-        let trigger: Driver<(String, String)>
-        let buttonTrigger: Driver<(String, String)>
+        let trigger: Driver<Void>
+        let buttonTrigger: Driver<RateCode>
     }
     
     struct Output {
-        let rates: Driver<ExchangeRate>
         let peroidRates: Driver<[ExchangeRate]>
-        let changedLabel: Driver<Void>
         let error: Driver<Error>
     }
     
@@ -36,24 +34,13 @@ class MainViewModel: ViewModelType {
         
         let errorTracker = ErrorTracker()
         
-        let mergeTrigger = Driver.merge(input.trigger, input.buttonTrigger)
-        
-        let rates = mergeTrigger.flatMapLatest { (defaultText, convertText) in
-            return self.useCase.exchangeRates(from: convertText, to: [defaultText])
-                    .trackError(errorTracker)
-                    .asDriver(onErrorJustReturn: ExchangeRate(base: "USD", date: Date(), rates: []))
-        }
-        
-        let peroidRates = mergeTrigger.flatMapLatest { (defaultText, convertText) in
-            return self.useCase.historicalRates(from: convertText, to: [defaultText], period: 7)
+        let peroidRates = input.buttonTrigger
+            .flatMapLatest { (rateCode) in
+                return self.useCase.historicalRates(from: rateCode.baseCode, to: [rateCode.symbolCode], period: 7)
                     .trackError(errorTracker)
                     .asDriver(onErrorJustReturn: [])
         }
         
-        let changedLabel = input.buttonTrigger.flatMapLatest { (_, _) in
-            return Driver.just()
-        }
-        
-        return Output(rates: rates, peroidRates: peroidRates, changedLabel: changedLabel, error: errorTracker.asDriver())
+        return Output(peroidRates: peroidRates, error: errorTracker.asDriver())
     }
 }

@@ -26,6 +26,8 @@ final class Network {
     func getExchangeRates(from baseRate: String? = nil, to symbols: [String]? = nil) -> Observable<ExchangeRate> {
         let absolutePath = "\(endPoint)/latest\(addParameters(from: baseRate, to: symbols))"
         
+        print("\(absolutePath) \(symbols)")
+        
         return RxAlamofire.requestJSON(.get, absolutePath)
             .debug()
             .map { response, json in

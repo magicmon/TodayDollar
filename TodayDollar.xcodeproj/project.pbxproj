@@ -28,6 +28,7 @@
 		0F8273571F1C6D450084A598 /* Observable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8273561F1C6D450084A598 /* Observable+Ext.swift */; };
 		0F82735E1F1C6E390084A598 /* NetworkExchangeRatesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F82735D1F1C6E390084A598 /* NetworkExchangeRatesUseCase.swift */; };
 		0F8273601F1C72BD0084A598 /* NetworkUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F82735F1F1C72BD0084A598 /* NetworkUseCaseProvider.swift */; };
+		0F8273631F1D98800084A598 /* RateCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8273621F1D987F0084A598 /* RateCode.swift */; };
 		B781C62E409CDDC2F8E25CE9 /* Pods_TodayDollar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06E6D09549B587DD4CBA2291 /* Pods_TodayDollar.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		0F8273561F1C6D450084A598 /* Observable+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Ext.swift"; sourceTree = "<group>"; };
 		0F82735D1F1C6E390084A598 /* NetworkExchangeRatesUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkExchangeRatesUseCase.swift; sourceTree = "<group>"; };
 		0F82735F1F1C72BD0084A598 /* NetworkUseCaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkUseCaseProvider.swift; sourceTree = "<group>"; };
+		0F8273621F1D987F0084A598 /* RateCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateCode.swift; sourceTree = "<group>"; };
 		277BEA04424B54F0FC8435E9 /* Pods-TodayDollar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayDollar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodayDollar/Pods-TodayDollar.debug.xcconfig"; sourceTree = "<group>"; };
 		D634311DD8D895F5BE907B8E /* Pods-TodayDollar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayDollar.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodayDollar/Pods-TodayDollar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -178,6 +180,7 @@
 			children = (
 				0F8273361F1C50B40084A598 /* ExchangeRate.swift */,
 				0F8273341F1C4EF00084A598 /* Rate.swift */,
+				0F8273621F1D987F0084A598 /* RateCode.swift */,
 			);
 			path = Entries;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 			files = (
 				0F8273501F1C6C720084A598 /* ViewModelType.swift in Sources */,
 				0F82735E1F1C6E390084A598 /* NetworkExchangeRatesUseCase.swift in Sources */,
+				0F8273631F1D98800084A598 /* RateCode.swift in Sources */,
 				0F8273411F1C59870084A598 /* Network.swift in Sources */,
 				0F82733B1F1C58800084A598 /* ExchangeRatesUseCase.swift in Sources */,
 				0F8272DA1F1737510084A598 /* AppDelegate.swift in Sources */,

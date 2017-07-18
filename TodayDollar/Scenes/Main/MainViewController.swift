@@ -14,8 +14,8 @@ import RxAlamofire
 
 class MainViewController: UIViewController {
     
-    @IBOutlet weak var defaultCurrencyName: UILabel!
-    @IBOutlet weak var convertCurrencyName: UILabel!
+    @IBOutlet weak var symbolCodeLabel: UILabel!
+    @IBOutlet weak var baseCodeLabel: UILabel!
     
     @IBOutlet weak var ratesLabel: UILabel!
     @IBOutlet weak var updateDate: UILabel!
@@ -35,45 +35,59 @@ class MainViewController: UIViewController {
         viewModel = MainViewModel(useCase: NetworkUseCaseProvider().makeExchangeRatesUseCase())
         
         let input = MainViewModel.Input(
-            trigger: Driver.just((self.defaultCurrencyName.text ?? "", self.convertCurrencyName.text ?? "")),
+            trigger: Driver.just(),
             buttonTrigger: changeButton.rx.tap
                 .asDriver()
+                .do(onNext: { _ in
+                    let aa = self.baseCodeLabel.text
+                    let bb = self.symbolCodeLabel.text
+                    
+                    self.baseCodeLabel.text = bb
+                    self.symbolCodeLabel.text = aa
+                })
                 .debounce(0.3)
+                .startWith(())
                 .map {
-                    return (self.convertCurrencyName.text ?? "", self.defaultCurrencyName.text ?? "")
+                    return RateCode(baseCode: self.baseCodeLabel.text ?? "USD", symbolCode: self.symbolCodeLabel.text ?? "KRW")
         })
         
         let output = viewModel.transform(input: input)
         
-        // 오늘 환율
-        output.rates
-            .drive(onNext: { [weak self] rate in
-                self?.ratesLabel.text = "\(rate.rates.first?.basicRate ?? 0.0)"
-                self?.updateDate.text = rate.date.stringValue
-            }).disposed(by: bag)
         
-        
-        // 일주일간 환율 추이
-        output.peroidRates
-            .drive(onNext: { [weak self] (results) in
+        output.peroidRates.drive(ratesBinding).disposed(by: bag)    // 오늘 환율
+        output.peroidRates.drive(periodBinding).disposed(by: bag)   // 일주일간 환율 추이
+    }
+}
+
+extension MainViewController {
+    var ratesBinding: UIBindingObserver<MainViewController, [ExchangeRate]> {
+        return UIBindingObserver(UIElement: self, binding: { (vc, exchangeRates) in
+            let rate = exchangeRates.last
             
-            self?.chartView.isHidden = false
+            vc.ratesLabel.text = "\(rate?.rates.first?.basicRate ?? 0.0)"
+            vc.updateDate.text = rate?.date.stringValue
+        })
+    }
+    
+    var periodBinding: UIBindingObserver<MainViewController, [ExchangeRate]> {
+        return UIBindingObserver(UIElement: self, binding: { (vc, exchangeRates) in
+            vc.chartView.isHidden = false
             
-            self?.chartView.leftAxis.gridLineDashLengths = [0.5, 0.5]
-            self?.chartView.leftAxis.drawZeroLineEnabled = false
-            self?.chartView.leftAxis.drawLimitLinesBehindDataEnabled = true
-            self?.chartView.rightAxis.enabled = false
-            self?.chartView.legend.form = .line
-            self?.chartView.animate(xAxisDuration: 1.0)
+            vc.chartView.leftAxis.gridLineDashLengths = [0.5, 0.5]
+            vc.chartView.leftAxis.drawZeroLineEnabled = false
+            vc.chartView.leftAxis.drawLimitLinesBehindDataEnabled = true
+            vc.chartView.rightAxis.enabled = false
+            vc.chartView.legend.form = .line
+            vc.chartView.animate(xAxisDuration: 1.0)
             
             
-            let min = results.map { $0.maxRates }.min() ?? 0.0
-            let max = results.map { $0.maxRates }.max() ?? 0.0
-            self?.chartView.leftAxis.axisMinimum = min - (max * 0.01)
-            self?.chartView.leftAxis.axisMaximum = max + (max * 0.01)
+            let min = exchangeRates.map { $0.maxRates }.min() ?? 0.0
+            let max = exchangeRates.map { $0.maxRates }.max() ?? 0.0
+            vc.chartView.leftAxis.axisMinimum = min - (max * 0.005)
+            vc.chartView.leftAxis.axisMaximum = max + (max * 0.005)
             
             var values = [ChartDataEntry]()
-            for (index, result) in results.enumerated() {
+            for (index, result) in exchangeRates.enumerated() {
                 guard let basicRate = result.rates.first?.basicRate else { continue }
                 let value = ChartDataEntry(x: Double(index), y: basicRate)
                 values.append(value)
@@ -87,23 +101,7 @@ class MainViewController: UIViewController {
             set.circleRadius = 2.0
             set.drawCircleHoleEnabled = false
             
-            self?.chartView.data = LineChartData(dataSet: set)
-        }).disposed(by: bag)
-        
-        
-        // 라벨 위치 변경 USD <-> KRW
-        output.changedLabel.drive(onNext: { [weak self] (_) in
-            let defaultName = self?.defaultCurrencyName.text
-            let convertName = self?.convertCurrencyName.text
-            
-            self?.defaultCurrencyName.text = convertName
-            self?.convertCurrencyName.text = defaultName
-        }).disposed(by: bag)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+            vc.chartView.data = LineChartData(dataSet: set)
+        })
     }
 }
-
