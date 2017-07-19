@@ -29,6 +29,10 @@
 		0F82735E1F1C6E390084A598 /* NetworkExchangeRatesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F82735D1F1C6E390084A598 /* NetworkExchangeRatesUseCase.swift */; };
 		0F8273601F1C72BD0084A598 /* NetworkUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F82735F1F1C72BD0084A598 /* NetworkUseCaseProvider.swift */; };
 		0F8273631F1D98800084A598 /* RateCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8273621F1D987F0084A598 /* RateCode.swift */; };
+		0F8273661F1DA2400084A598 /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8273651F1DA2400084A598 /* CountryListViewController.swift */; };
+		0F8273681F1DA24F0084A598 /* CountryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8273671F1DA24E0084A598 /* CountryListViewModel.swift */; };
+		0F82736A1F1E116F0084A598 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8273691F1E116F0084A598 /* Date+Ext.swift */; };
+		0F82736C1F1E11960084A598 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F82736B1F1E11960084A598 /* String+Ext.swift */; };
 		B781C62E409CDDC2F8E25CE9 /* Pods_TodayDollar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06E6D09549B587DD4CBA2291 /* Pods_TodayDollar.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +83,10 @@
 		0F82735D1F1C6E390084A598 /* NetworkExchangeRatesUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkExchangeRatesUseCase.swift; sourceTree = "<group>"; };
 		0F82735F1F1C72BD0084A598 /* NetworkUseCaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkUseCaseProvider.swift; sourceTree = "<group>"; };
 		0F8273621F1D987F0084A598 /* RateCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateCode.swift; sourceTree = "<group>"; };
+		0F8273651F1DA2400084A598 /* CountryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
+		0F8273671F1DA24E0084A598 /* CountryListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryListViewModel.swift; sourceTree = "<group>"; };
+		0F8273691F1E116F0084A598 /* Date+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		0F82736B1F1E11960084A598 /* String+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		277BEA04424B54F0FC8435E9 /* Pods-TodayDollar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayDollar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodayDollar/Pods-TodayDollar.debug.xcconfig"; sourceTree = "<group>"; };
 		D634311DD8D895F5BE907B8E /* Pods-TodayDollar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayDollar.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodayDollar/Pods-TodayDollar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -234,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				0F82734B1F1C6C330084A598 /* Main */,
+				0F8273641F1DA2290084A598 /* Country */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -260,6 +269,8 @@
 			children = (
 				0F8273541F1C6D320084A598 /* ErrorTracker.swift */,
 				0F8273561F1C6D450084A598 /* Observable+Ext.swift */,
+				0F8273691F1E116F0084A598 /* Date+Ext.swift */,
+				0F82736B1F1E11960084A598 /* String+Ext.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -271,6 +282,15 @@
 				0F82735F1F1C72BD0084A598 /* NetworkUseCaseProvider.swift */,
 			);
 			path = UseCases;
+			sourceTree = "<group>";
+		};
+		0F8273641F1DA2290084A598 /* Country */ = {
+			isa = PBXGroup;
+			children = (
+				0F8273651F1DA2400084A598 /* CountryListViewController.swift */,
+				0F8273671F1DA24E0084A598 /* CountryListViewModel.swift */,
+			);
+			path = Country;
 			sourceTree = "<group>";
 		};
 		3C3EB559C71B8B35E0CC4F52 /* Pods */ = {
@@ -479,19 +499,23 @@
 				0F82735E1F1C6E390084A598 /* NetworkExchangeRatesUseCase.swift in Sources */,
 				0F8273631F1D98800084A598 /* RateCode.swift in Sources */,
 				0F8273411F1C59870084A598 /* Network.swift in Sources */,
+				0F8273681F1DA24F0084A598 /* CountryListViewModel.swift in Sources */,
 				0F82733B1F1C58800084A598 /* ExchangeRatesUseCase.swift in Sources */,
 				0F8272DA1F1737510084A598 /* AppDelegate.swift in Sources */,
 				0F8273601F1C72BD0084A598 /* NetworkUseCaseProvider.swift in Sources */,
+				0F8273661F1DA2400084A598 /* CountryListViewController.swift in Sources */,
 				0F8273471F1C5BD30084A598 /* ExchangeRatesNetwork.swift in Sources */,
 				0F8273551F1C6D320084A598 /* ErrorTracker.swift in Sources */,
 				0F8273491F1C65FC0084A598 /* ExchangeRates+Mapping.swift in Sources */,
 				0F8273351F1C4EF00084A598 /* Rate.swift in Sources */,
 				0F8273391F1C582F0084A598 /* UseCaseProvider.swift in Sources */,
 				0F8273431F1C5B370084A598 /* NetworkProvider.swift in Sources */,
+				0F82736C1F1E11960084A598 /* String+Ext.swift in Sources */,
 				0F8273371F1C50B40084A598 /* ExchangeRate.swift in Sources */,
 				0F82734D1F1C6C3B0084A598 /* MainViewController.swift in Sources */,
 				0F8273571F1C6D450084A598 /* Observable+Ext.swift in Sources */,
 				0F8273521F1C6C900084A598 /* MainViewModel.swift in Sources */,
+				0F82736A1F1E116F0084A598 /* Date+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

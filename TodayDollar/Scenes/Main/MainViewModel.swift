@@ -29,8 +29,6 @@ class MainViewModel: ViewModelType {
         self.useCase = useCase
     }
     
-    let bag: DisposeBag = DisposeBag()
-
     func transform(input: Input) -> Output {
         
         let errorTracker = ErrorTracker()

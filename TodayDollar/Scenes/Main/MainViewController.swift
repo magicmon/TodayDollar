@@ -10,6 +10,7 @@ import UIKit
 import Charts
 import RxSwift
 import RxCocoa
+import RxGesture
 import RxAlamofire
 
 class MainViewController: UIViewController {
@@ -25,12 +26,30 @@ class MainViewController: UIViewController {
     @IBOutlet weak var chartView: LineChartView!
     
     
-    let bag = DisposeBag()
+    fileprivate let bag = DisposeBag()
     
-    var viewModel: MainViewModel!
+    fileprivate var viewModel: MainViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+     
+        bindViewModel()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    
+    func bindViewModel() {
         
         viewModel = MainViewModel(useCase: NetworkUseCaseProvider().makeExchangeRatesUseCase())
         
@@ -53,10 +72,44 @@ class MainViewController: UIViewController {
             self.baseCodeLabel.text = rateCode.baseCode
             self.symbolCodeLabel.text = rateCode.symbolCode
         }).disposed(by: bag)
+        
+        symbolCodeLabel.rx.tapGesture().when(.recognized)
+            .debounce(0.3, scheduler: MainScheduler.instance)
+            .map { [weak self] _ in return self?.symbolCodeLabel.text ?? "" }
+            .subscribe(pushViewInMain)
+            .disposed(by: bag)
+        
+        baseCodeLabel.rx.tapGesture()
+            .when(.recognized)
+            .debounce(0.3, scheduler: MainScheduler.instance)
+            .map { [weak self] _ in return self?.baseCodeLabel.text ?? "" }
+            .subscribe(pushViewInMain)
+            .disposed(by: bag)
     }
 }
 
+
 extension MainViewController {
+    var pushViewInMain: UIBindingObserver<MainViewController, String> {
+        return UIBindingObserver(UIElement: self, binding: { [weak self] (vc, code) in
+            
+            guard let weakSelf = self else { return }
+            
+            guard let nextViewController = weakSelf.storyboard?.instantiateViewController(withIdentifier: "CountryListViewController") as? CountryListViewController else {
+                return
+            }
+            
+            weakSelf.navigationController?.pushViewController(nextViewController, animated: true)
+            
+            nextViewController.currencyCode = code
+            
+            nextViewController.repoObservable
+                .subscribe(onNext: { text in
+                    print("subscribe \(text)")
+                }).disposed(by: weakSelf.bag)
+        })
+    }
+    
     var ratesBinding: UIBindingObserver<MainViewController, [ExchangeRate]> {
         return UIBindingObserver(UIElement: self, binding: { (vc, exchangeRates) in
             let rate = exchangeRates.last
@@ -86,6 +139,7 @@ extension MainViewController {
             var values = [ChartDataEntry]()
             for (index, result) in exchangeRates.enumerated() {
                 guard let basicRate = result.rates.first?.basicRate else { continue }
+                
                 let value = ChartDataEntry(x: Double(index), y: basicRate)
                 values.append(value)
             }

@@ -26,8 +26,6 @@ final class Network {
     func getExchangeRates(from baseRate: String? = nil, to symbols: [String]? = nil) -> Observable<ExchangeRate> {
         let absolutePath = "\(endPoint)/latest\(addParameters(from: baseRate, to: symbols))"
         
-        print("\(absolutePath) \(symbols)")
-        
         return RxAlamofire.requestJSON(.get, absolutePath)
             .debug()
             .map { response, json in
@@ -46,7 +44,14 @@ final class Network {
         
         for days in ( 1...peroid).reversed() {
             
-            let absolutePath = "\(endPoint)/\(Date().daysAgo(value: days).stringValue)\(addParameters(from: baseRate, to: symbols))"
+            let daysAgo = Date().daysAgo(value: days)
+            let dayOfWeek = daysAgo.dayNumberOfWeek
+            
+            if dayOfWeek == 1 || dayOfWeek == 7 {
+                continue
+            }
+            
+            let absolutePath = "\(endPoint)/\(daysAgo.stringValue)\(addParameters(from: baseRate, to: symbols))"
             let url = URL(string: absolutePath)!
             
             let request = RxAlamofire.requestJSON(.get, url)
@@ -74,21 +79,3 @@ extension Network {
     }
 }
 
-extension String {
-    var URLEscaped: String {
-        return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
-    }
-}
-
-extension Date {
-    func daysAgo(value: Int) -> Date {
-        return Calendar.current.date(byAdding: .day, value: -value, to: self)!
-    }
-    
-    var stringValue: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        
-        return formatter.string(from: self)
-    }
-}
